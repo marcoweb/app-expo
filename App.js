@@ -1,11 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, SafeAreaView, Alert } from 'react-native';
 
 export default function App() {
+  const [text, onChangeText] = React.useState("weqwewqe")
+
   return (
-    <View style={styles.container}>
-      <Text>Minha primeira aplicação React!!!</Text>
+    <View>
+      <TextInput style={styles.input} onChangeText = {onChangeText} value={text} />
+      <Button
+        title="Clique Aqui"
+        onPress={() => Alert.alert('Olá ' + text + '!!!')}
+      />
       <StatusBar style="auto" />
     </View>
   );
@@ -17,5 +23,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
 });
